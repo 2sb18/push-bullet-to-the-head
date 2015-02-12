@@ -11,6 +11,8 @@ $email_ids = imap_search ( $inbox, 'UNSEEN' );
 if ( $email_ids ) {
   foreach($email_ids as $email_id) {
     echo "<p>".imap_fetch_overview($inbox, $email_id)[0]->subject."</p>";
+
+    // figure out how to set email to read in here!
   }
 }
 
