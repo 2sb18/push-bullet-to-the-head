@@ -1,0 +1,89 @@
+  CONNECTION, ERRORS & QUOTAS 
+  =========================== 
+  imap_timeout 
+  imap_ping 
+  imap_open 
+  imap_reopen 
+  imap_close 
+  imap_check **(fairly useless) 
+  imap_alerts 
+  imap_errors 
+  imap_last_error 
+  imap_get_quota 
+  imap_get_quotaroot 
+  imap_set_quota 
+
+  MESSAGES - READING 
+  ================== 
+  imap_uid 
+  imap_msgno 
+  imap_fetchbody 
+  imap_fetchheader 
+  imap_fetchstructure 
+  imap_fetch_overview 
+  imap_body 
+  imap_rfc822_parse_adrlist 
+  imap_rfc822_parse_headers 
+
+  MESSAGES - WRITING 
+  ================== 
+  imap_mail_compose 
+  imap_mail 
+  imap_append 
+  imap_rfc822_write_address 
+
+  MESSAGES - OPERATIONS 
+  ===================== 
+  imap_undelete 
+  imap_thread 
+  imap_delete 
+  imap_mail_copy 
+  imap_mail_move 
+  imap_expunge 
+  imap_clearflag_full 
+  imap_setflag_full 
+
+  MESSAGES - DECODE/ENCODE 
+  ======================== 
+  imap_utf7_decode 
+  imap_utf7_encode 
+  imap_utf8 
+  imap_8bit 
+  imap_base64 
+  imap_binary 
+  imap_mime_header_decode 
+  imap_qprint 
+
+  FOLDERS 
+  ======= 
+  imap_createmailbox 
+  imap_deletemailbox 
+  imap_getmailboxes 
+  imap_mailboxmsginfo 
+  imap_renamemailbox 
+  imap_headers **(fairly useless) 
+  imap_status 
+  imap_sort 
+  imap_search 
+  imap_listscan 
+
+  NNTP 
+  ==== 
+  imap_unsubscribe 
+  imap_subscribe 
+  imap_getsubscribed 
+
+  Others 
+  ============================= 
+  imap_num_msg - use imap_mailboxmsginfo() 
+  imap_num_recent - use imap_mailboxmsginfo() 
+  imap_header - alias of imap_headerinfo() 
+  imap_scanmailbox - alias of imap_listscan() 
+  imap_listsubscribed - alias of imap_lsub() 
+  imap_listmailbox - alias of imap_list() 
+  imap_lsub - use imap_getsubscribed() 
+  imap_list - use imap_getmailboxes() 
+  imap_bodystruct - not documented 
+  imap_getacl - not documented 
+  imap_setacl - not documented 
+  imap_headerinfo - use imap_fetch_overview()
