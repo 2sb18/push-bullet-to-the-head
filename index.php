@@ -3,19 +3,35 @@
 <body>
 <?php
 require_once "config.php";
-$inbox = imap_open('{' . $imap_server . '}INBOX', $email_address, $password );
 
-// look at unopened messages only
-$email_ids = imap_search ( $inbox, 'UNSEEN' );
+$curl = curl_init ();
+curl_setopt($curl, CURLOPT_URL, "https://api.pushbullet.com/v2/pushes" );
+curl_setopt($curl, CURLOPT_POST, TRUE);
+curl_setopt($curl, CURLOPT_USERPWD, $pushbullet_key );
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/json") );
+curl_setopt($curl, CURLOPT_POSTFIELDS, '{"type": "note", "title": "meow test", "body": "Note Body"}');
+curl_exec ( $curl );
 
-if ( $email_ids ) {
-  foreach($email_ids as $email_id) {
-    echo "<p>".imap_fetch_overview($inbox, $email_id)[0]->subject."</p>";
-
-    // figure out how to set email to read in here!
-  }
-}
-
+//
+// $inbox = imap_open('{' . $imap_server . '}INBOX', $email_address, $password );
+//
+// // look at unopened messages only
+// $email_uids = imap_search ( $inbox, 'UNSEEN', SE_UID );
+//
+//
+// if ( $email_uids ) {
+//   foreach($email_uids as $email_uid) {
+//     // echo "<p>".imap_fetch_overview($inbox, $email_uid)[0]->subject."</p>";
+//     $structure = imap_fetchstructure ( $inbox, $email_uid, FT_UID );
+//     // calling imap_body sets the message to SEEN
+//     // $body = imap_body($inbox, $email_uid);
+//     // echo imap_qprint(imap_body($inbox, $email_uid));
+//     // echo "<p>".imap_fetchbody($inbox, $email_uid)[0]->subject."</p>";
+//
+//     // figure out how to set email to read in here!
+//   }
+// }
+//
 
 //
 // if ($emails) {
